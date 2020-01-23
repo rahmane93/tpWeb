@@ -10,7 +10,6 @@ function DnD(canvas, interactor) {
   this.beginDnD = false;
 
   // Developper les 3 fonctions gérant les événements
-  
   this.push = function(event){
     this.beginDnD = true;
     var position = getMousePosition(canvas,event);
@@ -23,8 +22,8 @@ function DnD(canvas, interactor) {
   this.move = function(event){
     if(this.beginDnD == true){
       var position = getMousePosition(canvas,event);
-      this.beginX = position.x;
-      this.beginY = position.y;
+      this.endX = position.x;
+      this.endY = position.y;
       interactor.onInteractionUpdate(this)
       //console.log(this.beginX);
     }
@@ -35,7 +34,12 @@ function DnD(canvas, interactor) {
       this.endX = position.x;
       this.endY = position.y;
       this.beginDnD = false;
-      interactor.onInteractionEnd(this)
+      interactor.onInteractionEnd(this);
+      this.endX = 0;
+      this.endY = 0;
+      this.beginX = 0;
+      this.beginY = 0;
+      
       //console.log(this.endX);
   }.bind(this);
 
@@ -43,7 +47,6 @@ function DnD(canvas, interactor) {
   canvas.addEventListener('mousedown', this.push, false);
   canvas.addEventListener('mousemove', this.move, false);
   canvas.addEventListener('mouseup', this.up, false);
-
 };
 
 // Place le point de l'événement evt relativement à la position du canvas.

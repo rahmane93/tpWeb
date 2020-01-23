@@ -21,6 +21,11 @@
         ctx.moveTo(this.getBeginX(), this.getBeginY());
         ctx.lineTo(this.getEndX(), this.getEndY());
         ctx.stroke();
+        console.log('passe par paintLine' )
+        console.log(this.getBeginX() )
+        console.log(this.getBeginY() )
+        console.log(this.getEndX() )
+        console.log(this.getEndY() )
     
     };
  

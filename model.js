@@ -39,18 +39,18 @@ function Forme(couleur, epaisseurTrait) {
 
   };
   function Ligne(beginX,beginY,endX,endY, epaisseurTrait, couleur){
-    Forme.call(this, couleur, epaisseur);
+    Forme.call(this, couleur, epaisseurTrait);
     this.beginX = beginX;
     this.beginY = beginY;
     this.endX = endX;
     this.endY = endY;
 
     this.getBeginX = function() {
-        return this.getBeginX;
+        return this.beginX;
     }.bind(this) ;
     
     this.getBeginY = function() {
-        return this.getBeginY;
+        return this.beginY;
     }.bind(this) ;
 
     this.getEndX = function() {
@@ -64,13 +64,16 @@ function Forme(couleur, epaisseurTrait) {
   }
  
   function Drawing(listForm){
-      this.listForm = listForm;
+    this.listForm = [];
 
     this.getListForm = function() {
         return this.listForm;
     }.bind(this) ;
+
+    this.addForm = function(form) {
+      this.listForm.push(form);
+     }.bind(this) ;
   }
-  
   
 
 // N'oubliez pas l'héritage !

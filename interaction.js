@@ -26,7 +26,6 @@ function DnD(canvas, interactor) {
       this.beginX = position.x;
       this.beginY = position.y;
       interactor.onInteractionUpdate(this)
-
       //console.log(this.beginX);
     }
   }.bind(this);
